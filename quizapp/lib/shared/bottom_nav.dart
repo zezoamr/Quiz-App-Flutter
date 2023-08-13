@@ -24,10 +24,10 @@ class BottomNavbar extends StatelessWidget {
           case 0:
             break;
           case 1:
-            Navigator.pushNamed(context, 'about');
+            Navigator.pushNamed(context, '/about');
             break;
           case 2:
-            Navigator.pushNamed(context, 'profile');
+            Navigator.pushNamed(context, '/profile');
             break;
         }
       },

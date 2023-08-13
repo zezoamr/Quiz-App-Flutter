@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
 import 'package:quizapp/routes.dart';
 import 'package:quizapp/theme.dart';
 import 'firebase_options.dart';
+import 'services/firestore.dart';
+import 'services/models.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -22,9 +25,13 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      routes: appRoutes,
-      theme: appTheme,
+    return StreamProvider(
+      create: (_) => FirestoreService().streamReport(),
+      initialData: Report(),
+      child: MaterialApp(
+        routes: appRoutes,
+        theme: appTheme,
+      ),
     );
   }
 }

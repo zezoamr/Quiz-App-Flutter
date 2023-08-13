@@ -9,6 +9,9 @@ class AboutScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('AboutScreen'),
       ),
+      body: const Center(
+        child: Text('About this app...'),
+      ),
     );
   }
 }
